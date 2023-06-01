@@ -1,4 +1,5 @@
 import { FloatingButton } from '@/components/FloatingButton'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
               ButtonLink="https:/github.com/GabriellMatias"
             />
             <FloatingButton
-              ButtonName="Contact"
+              ButtonName="About me"
               ButtonLink="https:/github.com/GabriellMatias"
             />
             <FloatingButton
@@ -48,11 +49,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="flex bg-[#120e25] py-3 rounded-lg">
-        <span className="text-white font-semibold my-0 mx-auto">
-          🚀 2023 @copyright {'<'}Gabriell.Matias {'/>'}
-        </span>
-      </footer>
+
+      <Footer />
     </>
   )
 }
