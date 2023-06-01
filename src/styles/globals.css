@@ -2,26 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  background:#0c0919;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+// Link Animations 
+.list {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+.link {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+}
+.link::before,
+.link::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height:4px;
+	background-color: #0561EE;
+	transform: scaleX(0);
+	transition: transform 0.25s;
+}
+.link::before {
+	top: -3px;
+	transform-origin: left;
+}
+.link::after {
+	bottom: -3px;
+	transform-origin: right;
+}
+.link:hover::before,
+.link:hover::after,
+.active::before,
+.active::after {
+	transform: scaleX(1);
 }
