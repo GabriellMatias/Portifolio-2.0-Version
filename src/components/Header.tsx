@@ -35,7 +35,7 @@ export function Header() {
         </li>
         <li>
           {' '}
-          <Link href="" className="link">
+          <Link href="/technologiesPage" className="link">
             Technologies
           </Link>{' '}
         </li>

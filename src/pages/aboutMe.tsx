@@ -1,13 +1,51 @@
+import { FloatingButton } from '@/components/FloatingButton'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { VerticalTimeLineStudentExperience } from '@/components/VerticalTimeLineStudentExperience'
 import { VerticalTimeLineWorkExperience } from '@/components/VerticalTimeLineWorkExperience'
+import Image from 'next/image'
 
 export default function AboutMe() {
   return (
     <>
       <Header />
-      <section className="py-8 px-28">
+      <section className="py-8 px-28 text-white">
+        <h1 className="text-center font-bold text-3xl">About Me</h1>
+        <div className="flex justify-center items-center gap-60">
+          <article className="w-[36rem] flex flex-col gap-16 font-bold">
+            <h1 className="text-bold text-2xl mt-12">
+              I`m a <span className="text-blue-600">Full Stack</span> Developer.
+            </h1>
+            <p className="mt-[-2rem] text-lg">
+              I`m 20 years old. I`ve started to program in 2019, since this i
+              always trying to learn something 📕
+            </p>
+            <p className="text-lg">
+              Today i`m a full stack developer. Specializing in{' '}
+              <span className="text-blue-500"> React JS</span> on the frontEnd
+              with <span className="text-green-500">node and/or python</span> 🐍
+              on the backEnds and{' '}
+              <span className="text-blue-500">React Native</span> on mobile 📱
+            </p>
+            <p className="text-lg">
+              I’m cursing Computer 💻 Sience in Universidade Catolica de
+              Brasilia [UCB]. I’m in the 5 semester, I also study a lot of web
+              courses like alura, curso em video and Rocketseat.
+            </p>
+            <FloatingButton ButtonLink="#" ButtonName="Linkedin" />
+          </article>
+          <article className="w-[32rem] h-100 transition-all duration-700 hover:scale-105">
+            <Image
+              alt="profile photo"
+              width={402}
+              height={100}
+              className="rounded-xl"
+              src={'https://github.com/gabriellmatias.png'}
+            />
+          </article>
+        </div>
+      </section>
+      <section className="py-8 px-28 mt-8">
         <span className="text-gray-400 mb-2">What i have done so far!</span>
         <h1 className="text-white font-bold text-3xl mb-10">
           My <span className="text-bold text-blue-600">History</span> Until now
