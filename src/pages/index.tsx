@@ -11,7 +11,7 @@ export default function Home() {
           <article>
             <h2 className="text-white font-bold text-3xl flex flex-col gap-4">
               Hello there 🖐️, My Name is{' '}
-              <span className="text-6xl">
+              <span className="text-6xl text-blue-600">
                 {'<'}Gabriell.Matias {'/>'}
               </span>
             </h2>
@@ -38,10 +38,7 @@ export default function Home() {
               ButtonName="Github"
               ButtonLink="https:/github.com/GabriellMatias"
             />
-            <FloatingButton
-              ButtonName="About me"
-              ButtonLink="https:/github.com/GabriellMatias"
-            />
+            <FloatingButton ButtonName="About me" ButtonLink="/aboutMe" />
             <FloatingButton
               ButtonName="Projects"
               ButtonLink="https:/github.com/GabriellMatias"
