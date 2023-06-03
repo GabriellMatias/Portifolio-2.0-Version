@@ -1,4 +1,6 @@
-import { Books, Rocket, Student } from 'phosphor-react'
+import { ImBooks } from 'react-icons/im'
+import { FaRocket } from 'react-icons/fa'
+import { IoMdSchool } from 'react-icons/io'
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -14,7 +16,7 @@ export function VerticalTimeLineStudentExperience() {
         contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
         date="2017 - 2019"
         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-        icon={<Student />}
+        icon={<IoMdSchool />}
       >
         <h3 className="vertical-timeline-element-title">
           Student at Federal Institute 🇧🇷
@@ -32,7 +34,7 @@ export function VerticalTimeLineStudentExperience() {
         contentArrowStyle={{ borderRight: '7px solid  rgb(8, 235, 87)' }}
         date="2021 - NOW"
         iconStyle={{ background: 'rgb(8, 235, 87)', color: '#fff' }}
-        icon={<Books />}
+        icon={<ImBooks />}
       >
         <h3 className="vertical-timeline-element-title">
           Science Computation College 📚
@@ -49,7 +51,7 @@ export function VerticalTimeLineStudentExperience() {
         contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
         date="2021 - NOW"
         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-        icon={<Rocket />}
+        icon={<FaRocket />}
       >
         <h3 className="vertical-timeline-element-title">
           Student At RocketSeat education 🚀
@@ -66,7 +68,7 @@ export function VerticalTimeLineStudentExperience() {
         contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
         date="2017 - NOW"
         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-        icon={<Rocket />}
+        icon={<FaRocket />}
       >
         <h3 className="vertical-timeline-element-title">
           Studing all the time 👨‍🎓

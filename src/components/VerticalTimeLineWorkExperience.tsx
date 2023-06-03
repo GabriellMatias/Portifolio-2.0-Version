@@ -1,4 +1,5 @@
-import { Buildings, Student } from 'phosphor-react'
+import { FaBuilding } from 'react-icons/fa'
+import { IoMdSchool } from 'react-icons/io'
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -14,7 +15,7 @@ export function VerticalTimeLineWorkExperience() {
         contentArrowStyle={{ borderRight: '7px solid   rgb(8, 235, 87)' }}
         date="2019 - NOW"
         iconStyle={{ background: '  rgb(8, 235, 87)', color: '#fff' }}
-        icon={<Student />}
+        icon={<IoMdSchool />}
       >
         <h3 className="vertical-timeline-element-title">
           Freelancers - building websites 🌎
@@ -33,7 +34,7 @@ export function VerticalTimeLineWorkExperience() {
         contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
         date="2022 - 2023"
         iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-        icon={<Buildings size={32} weight="fill" />}
+        icon={<FaBuilding size={32} />}
       >
         <h3 className="vertical-timeline-element-title">
           Intern at Advocacia geral da uniao [Union's General Advocacy] 🏛️
