@@ -10,7 +10,9 @@ export default function AboutMe() {
     <>
       <Header />
       <section className="py-8 px-28 text-white">
-        <h1 className="text-center font-bold text-3xl">About Me</h1>
+        <h1 className="text-center font-bold text-3xl">
+          {'<'}About - Me {'/>'}
+        </h1>
         <div className="flex justify-center items-center gap-60">
           <article className="w-[36rem] flex flex-col gap-16 font-bold">
             <h1 className="text-bold text-2xl mt-12">
