@@ -1,21 +1,23 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { api } from './api/api'
+
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { SelectedRepositorysIDs } from '@/utils/SelectedRepositorysIDS'
+import { octokit } from './api/api'
+import { ProjectsCards } from '@/components/projectsCard'
 
-interface Repository {
+export interface Repository {
   id: number
   name: string
   description: string
-  url: string
+  html_url: string
+  readme?: string
 }
 
-interface RepositoriesPageProps {
+export interface RepositoriesPageProps {
   repositories: [
-    { frontEndRepositorys: Repository[] },
-    { backEndRepositorys: Repository[] },
+    { frontEndRepositories: Repository[] },
+    { backEndRepositories: Repository[] },
   ]
 }
 
@@ -29,25 +31,29 @@ export default function RepositoriesPage({
         <div className="text-white">
           <h1>FRONT END REPOS</h1>
           <ul>
-            {repositories[0].frontEndRepositorys.map((repo) => (
-              <li key={repo.id}>
-                <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                  {repo.name}
-                </a>
-                <p>{repo.description}</p>
-              </li>
+            {repositories[0].frontEndRepositories.map((repo) => (
+              <ProjectsCards
+                key={repo.id}
+                readme={repo.readme}
+                description={repo.description}
+                html_url={repo.html_url}
+                id={repo.id}
+                name={repo.name}
+              />
             ))}
-            <hr className="mx-20 flex" />
+
             <h1>BACK END REPOS</h1>
           </ul>
           <ul>
-            {repositories[1].backEndRepositorys.map((repo) => (
-              <li key={repo.id}>
-                <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                  {repo.name}
-                </a>
-                <p>{repo.description}</p>
-              </li>
+            {repositories[1].backEndRepositories.map((repo) => (
+              <ProjectsCards
+                key={repo.id}
+                readme={repo.readme}
+                description={repo.description}
+                html_url={repo.html_url}
+                id={repo.id}
+                name={repo.name}
+              />
             ))}
           </ul>
         </div>
@@ -61,35 +67,63 @@ export const getServerSideProps: GetServerSideProps<
   RepositoriesPageProps
 > = async () => {
   try {
-    const response = await api.get('/users/GabriellMatias/repos', {
+    const response = await octokit.request('GET /users/GabriellMatias/repos', {
       headers: {
         Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
       },
+      per_page: 100,
     })
 
-    const repositories = response.data.map((repo: any) => ({
-      id: repo.id,
-      name: repo.name,
-      description: repo.description,
-      url: repo.html_url,
-    }))
+    const repositories = await Promise.all(
+      response.data.map(async (repo: Repository) => {
+        let readmeRepositoryResponse = null
+        try {
+          readmeRepositoryResponse = await octokit.request(
+            'GET /repos/{owner}/{repo}/readme',
+            {
+              owner: 'GabriellMatias',
+              repo: repo.name,
+            },
+          )
+        } catch (error) {
+          // Ignore the error and keep readmeRepositoryResponse as null
+        }
 
-    const selectedFrontEndRepositoriesIds = SelectedRepositorysIDs.map((item) =>
-      item.type === 'front-End' ? item.id : null,
-    )
-    const frontEndRepositorys = repositories.filter((repo: any) =>
-      selectedFrontEndRepositoriesIds.includes(repo.id),
-    )
-    const selectedBackEndRepositoriesIds = SelectedRepositorysIDs.map((item) =>
-      item.type === 'back-End' ? item.id : null,
-    )
-    const backEndRepositorys = repositories.filter((repo: any) =>
-      selectedBackEndRepositoriesIds.includes(repo.id),
+        const decoding = readmeRepositoryResponse
+          ? atob(readmeRepositoryResponse.data.content)
+          : null
+        const regex = /src="([^"]*)"/
+        const match = decoding ? decoding.match(regex) : null
+        const srcValue = match ? match[1] : null
+
+        return {
+          id: repo.id,
+          name: repo.name,
+          description: repo.description,
+          html_url: repo.html_url,
+          readme: srcValue,
+        }
+      }),
     )
 
+    const frontEndRepositories = repositories.filter((repo: Repository) => {
+      const isSelected = repo.description
+        ? repo.description.toLowerCase().includes('[front-end - portifolio]')
+        : false
+
+      return isSelected
+    })
+
+    const backEndRepositories = repositories.filter((repo: Repository) => {
+      const isSelected = repo.description
+        ? repo.description.toLowerCase().includes('[back-end - portifolio]')
+        : false
+
+      return isSelected
+    })
     return {
       props: {
-        repositories: [{ frontEndRepositorys }, { backEndRepositorys }],
+        repositories: [{ frontEndRepositories }, { backEndRepositories }],
       },
     }
   } catch (error) {
@@ -97,8 +131,8 @@ export const getServerSideProps: GetServerSideProps<
     return {
       props: {
         repositories: [
-          { frontEndRepositorys: null },
-          { backEndRepositorys: null },
+          { frontEndRepositories: [] },
+          { backEndRepositories: [] },
         ],
       },
     }

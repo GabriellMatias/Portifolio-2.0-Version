@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         'blue-200': '#1E90FF',
         'blue-900': '#0c0919',
+        'green-500': '#7fff00',
       },
       keyframes: {
         slideBottom: {
