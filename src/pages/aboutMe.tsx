@@ -36,13 +36,13 @@ export default function AboutMe() {
             </p>
             <FloatingButton ButtonLink="#" ButtonName="Linkedin" />
           </article>
-          <article className="w-[32rem] h-100 transition-all duration-700 hover:scale-105">
+          <article className="w-[38rem] h-[28rem] rounded-xl bg-[#003140] transition-all duration-700 hover:scale-105">
             <Image
               alt="profile photo"
-              width={402}
-              height={100}
-              className="rounded-xl"
-              src={'https://github.com/gabriellmatias.png'}
+              width={560}
+              height={250}
+              className="rounded-xl my-6 mx-auto"
+              src={'/AboutMeGif.gif'}
             />
           </article>
         </div>
