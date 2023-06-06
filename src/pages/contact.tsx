@@ -62,7 +62,7 @@ export default function Contact() {
               conections ✈️
             </span>
           </aside>
-          <article className="w-[38rem] h-[28rem]">
+          <article className="w-[38rem] h-[28rem] tablet:hidden mobile:hidden">
             <img
               src="/Contactt.gif"
               className="rounded-xl"

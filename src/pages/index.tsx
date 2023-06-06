@@ -25,7 +25,7 @@ export default function Home() {
               />
             </h3>
           </article>
-          <aside>
+          <aside className="tablet:hidden mobile:hidden">
             <img src="/gifMatias.gif" alt="gif all devices" />
           </aside>
         </main>
@@ -33,7 +33,7 @@ export default function Home() {
           <h3 className="text-white font-bold text-2xl mt-10">
             Come know me better 👇.
           </h3>
-          <div className="flex gap-9">
+          <div className="flex items-center justify-center gap-9 tablet:flex-col mobile:flex-col">
             <FloatingButton
               ButtonName="Github"
               ButtonLink="https:/github.com/GabriellMatias"

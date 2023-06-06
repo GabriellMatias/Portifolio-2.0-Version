@@ -1,5 +1,6 @@
 import React, { ElementType, useState } from 'react'
 import { motion } from 'framer-motion'
+import { toast } from 'react-toastify'
 
 interface TechnologiesCardProps {
   title: string
@@ -13,9 +14,13 @@ export function TechnologiesCard({
   icon: Icon,
 }: TechnologiesCardProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const notifyClose = () =>
+    toast.success('To close the modal CLICK on it!', {
+      toastId: 1,
+    })
 
   return (
-    <div className="h-[14rem] w-[27em] gap-10 flex flex-col justify-center items-center">
+    <div className="h-[14rem] w-[27em] gap-10 flex transition-all duration-1000 hover:scale-105 flex-col justify-center items-center">
       <motion.div
         layout
         data-isOpen={isOpen}
@@ -25,7 +30,9 @@ export function TechnologiesCard({
             ? 'h-56 w-72 items-start justify-start  overflow-hidden'
             : 'justify-center items-center'
         }`}
-        onClick={() => setIsOpen(!isOpen)}
+        onHoverEnd={notifyClose}
+        onHoverStart={() => setIsOpen(true)}
+        onClick={() => setIsOpen(false)}
       >
         <motion.div
           layout
@@ -33,7 +40,7 @@ export function TechnologiesCard({
             isOpen ? 'ml-2 mt-2' : ''
           }`}
         >
-          <Icon />
+          {Icon && <Icon className="h-10 w-10 rounded text-gray-800" />}
           <div
             className={`w-60 h-fit flex flex-col  ml-4 transition-all duration-1000 gap-4 justify-center items-center  ${
               isOpen ? '' : 'hidden'
@@ -44,9 +51,6 @@ export function TechnologiesCard({
           </div>
         </motion.div>
       </motion.div>
-      <span className={`text-gray-400 mb-2 ${isOpen ? 'hidden' : ''}`}>
-        <span className="text-blue-500">Click</span> on me!
-      </span>
     </div>
   )
 }

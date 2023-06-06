@@ -4,7 +4,8 @@ import { GetServerSideProps } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { octokit } from './api/api'
-import { ProjectsCards } from '@/components/projectsCard'
+import { FrontEndProjectsCard } from '@/components/FrontEndProjectsCard'
+import { BackEndProjectsCard } from '@/components/BackEndProjectCard'
 
 export interface Repository {
   id: number
@@ -37,9 +38,9 @@ export default function RepositoriesPage({
           Take a look on my{' '}
           <span className="text-bold text-blue-600">Front-End</span> Projects 🚀
         </h1>
-        <section className="grid grid-cols-3 gap-10 mb-14">
+        <section className="grid grid-cols-3 gap-10 mb-14 mobile:grid-cols-1 tablet:grid-cols-2">
           {repositories[0].frontEndRepositories.map((repo) => (
-            <ProjectsCards
+            <FrontEndProjectsCard
               key={repo.id}
               readme={repo.readme}
               description={repo.description}
@@ -55,9 +56,9 @@ export default function RepositoriesPage({
           Take a look on my{' '}
           <span className="text-bold text-red-500">Back-End</span> Projects 🖨️
         </h1>
-        <section className="grid grid-cols-3 gap-10">
+        <section className="flex flex-col items-center justify-center gap-6">
           {repositories[1].backEndRepositories.map((repo) => (
-            <ProjectsCards
+            <BackEndProjectsCard
               key={repo.id}
               readme={repo.readme}
               description={repo.description}
@@ -68,14 +69,34 @@ export default function RepositoriesPage({
             />
           ))}
         </section>
+        <h1 className="text-right text-white font-bold text-3xl my-10">
+          My
+          <span className="text-bold text-green-500"> Mobile</span> Projects 📱
+        </h1>
+        <section className="flex flex-col items-center justify-center gap-6">
+          <div className="h-auto flex-1 w-[60vw] text-white hover:text-orange-500 transition-all duration-1000 hover:scale-105 flex flex-col justify-center items-center">
+            <div className="text-6xl">⚒️</div>
+            <h1 className="text-2xl font-bold  ">Under Construction...</h1>
+            <span className="font-semibold text-sm">
+              I`m building to bring you the best experience, be patiente 😆
+            </span>
+            <div className="bg-white w-full h-[0.5px] mt-4"></div>
+          </div>
+        </section>
         <footer className="mt-24">
           <h1 className="text-center text-white font-bold text-3xl mb-10">
-            My
-            <span className="text-bold text-green-500">Github</span> status 🐈‍⬛
+            My{''}
+            <span className="text-bold text-green-500"> Github</span> status 🐈‍⬛
           </h1>
-          <div className="flex align-center justify-center gap-8">
-            <img src="https://github-readme-stats.vercel.app/api?username=GabriellMatias&show_icons=true&theme=dark&include_all_commits=true&count_private=true" />
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GabriellMatias&layout=compact&langs_count=7&theme=dark" />
+          <div className="flex align-center justify-center gap-8 tablet:flex-col  mobile:flex-col">
+            <img
+              className="transition-all duration-1000 hover:scale-105"
+              src="https://github-readme-stats.vercel.app/api?username=GabriellMatias&show_icons=true&theme=dark&include_all_commits=true&count_private=true"
+            />
+            <img
+              className="transition-all duration-1000 hover:scale-105"
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=GabriellMatias&layout=compact&langs_count=7&theme=dark"
+            />
           </div>
         </footer>
       </main>

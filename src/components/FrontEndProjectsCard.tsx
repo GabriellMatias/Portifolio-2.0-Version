@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaRocket } from 'react-icons/fa'
 import Link from 'next/link'
 
-export function ProjectsCards({
+export function FrontEndProjectsCard({
   description,
   html_url,
   id,

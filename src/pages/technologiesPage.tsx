@@ -2,8 +2,20 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { TechnologiesCard } from '@/components/TechnologiesCard'
 import { technologieService } from '@/utils/technologiesService'
-import { IoMdSchool } from 'react-icons/io'
-import { SiTypescript } from 'react-icons/si'
+import {
+  FaFigma,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+  FaWordpress,
+} from 'react-icons/fa'
+import { TbBrandDjango, TbBrandNextjs } from 'react-icons/tb'
+import {
+  SiJavascript,
+  SiStyledcomponents,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si'
 
 export default function TechnologiesPage() {
   const { Technologies } = technologieService
@@ -18,11 +30,11 @@ export default function TechnologiesPage() {
         <h1 className="text-white font-bold text-3xl mb-10">
           My <span className="text-bold text-blue-600">Main</span> Stack 🖥️
         </h1>
-        <section className="grid grid-cols-3 gap-10">
+        <section className="grid grid-cols-3 gap-10 tablet:grid-cols-2 mobile:grid-cols-1">
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={IoMdSchool}
+            description={Technologies.React.description}
+            title="ReactJS"
+            icon={FaReact}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
@@ -30,39 +42,39 @@ export default function TechnologiesPage() {
             icon={SiTypescript}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.JavaScript.description}
+            title="JavaScript"
+            icon={SiJavascript}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.Python.description}
+            title="Python"
+            icon={FaPython}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.Figma.description}
+            title="Figma"
+            icon={FaFigma}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.NextJS.description}
+            title="NextJS"
+            icon={TbBrandNextjs}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.NodeJS.description}
+            title="NodeJS"
+            icon={FaNodeJs}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.StyledComponents.description}
+            title="StyledComponents"
+            icon={SiStyledcomponents}
           />
           <TechnologiesCard
-            description={Technologies.Typescript.description}
-            title="TypeScript"
-            icon={SiTypescript}
+            description={Technologies.TailwindCSS.description}
+            title="TailwindCSS"
+            icon={SiTailwindcss}
           />
         </section>
         <section className="mt-20 text-right">
@@ -71,18 +83,21 @@ export default function TechnologiesPage() {
             Technologies i{' '}
             <span className="text-bold text-blue-600">Current</span> Study 📚
           </h1>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-3 gap-10  tablet:grid-cols-2 mobile:grid-cols-1">
             <TechnologiesCard
-              description={Technologies.Typescript.description}
-              title="TypeScript"
+              description={Technologies.WordPress.description}
+              title="WordPress"
+              icon={FaWordpress}
             />
             <TechnologiesCard
-              description={Technologies.Typescript.description}
-              title="TypeScript"
+              description={Technologies.ReactNative.description}
+              title="ReactNative"
+              icon={FaReact}
             />
             <TechnologiesCard
-              description={Technologies.Typescript.description}
-              title="TypeScript"
+              description={Technologies.Django.description}
+              title="Django"
+              icon={TbBrandDjango}
             />
           </div>
         </section>

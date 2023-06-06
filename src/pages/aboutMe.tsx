@@ -36,7 +36,7 @@ export default function AboutMe() {
             </p>
             <FloatingButton ButtonLink="#" ButtonName="Linkedin" />
           </article>
-          <article className="w-[38rem] h-[28rem] rounded-xl bg-[#003140] transition-all duration-700 hover:scale-105">
+          <article className="w-[38rem] h-[28rem] rounded-xl bg-[#003140] transition-all duration-700 hover:scale-105 tablet:hidden mobile:hidden">
             <Image
               alt="profile photo"
               width={560}

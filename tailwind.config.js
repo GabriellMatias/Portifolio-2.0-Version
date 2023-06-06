@@ -17,11 +17,19 @@ module.exports = {
           '0%': { transform: 'translateY(0px)' },
           '100%': { transform: 'translateY(15px)' },
         },
+        slideDown: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(0%)' },
+        },
       },
       animation: {
         'ease-in': 'slideBottom 2s ease-in-out infinite alternate 0.5s both',
         'ease-in-fast':
           'slideBottom 0.7s ease-in-out infinite alternate 0.1s both',
+      },
+      screens: {
+        mobile: { max: '1024px' },
+        tablet: { max: '1279px', min: '1024px' },
       },
     },
   },
