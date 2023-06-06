@@ -2,10 +2,10 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { TechnologiesCard } from '@/components/TechnologiesCard'
 import { technologieService } from '@/utils/technologiesService'
+import { IoMdSchool } from 'react-icons/io'
 import { SiTypescript } from 'react-icons/si'
 
 export default function TechnologiesPage() {
-  console.log(typeof (<SiTypescript />))
   const { Technologies } = technologieService
   return (
     <>
@@ -22,38 +22,47 @@ export default function TechnologiesPage() {
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={IoMdSchool}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
           <TechnologiesCard
             description={Technologies.Typescript.description}
             title="TypeScript"
+            icon={SiTypescript}
           />
         </section>
         <section className="mt-20 text-right">

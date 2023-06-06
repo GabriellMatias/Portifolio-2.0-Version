@@ -2,7 +2,7 @@ import { Repository } from '@/pages/projects'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import { FaGithub } from 'react-icons/fa'
+import { FaGithub, FaRocket } from 'react-icons/fa'
 import Link from 'next/link'
 
 export function ProjectsCards({
@@ -11,57 +11,95 @@ export function ProjectsCards({
   id,
   readme,
   name,
+  deployUrl,
 }: Repository) {
   const [isOpen, setIsOpen] = useState(false)
-  const formattedDescription = description.replace(/\[[A-Za-z\s-]+\]/gi, '')
+
+  function trimDescription(texto: string) {
+    const palavras = texto.trim().split(' ')
+
+    const primeirasPalavras = palavras.slice(0, 10)
+    const temMaisPalavras = palavras.length > 10
+
+    let resultado = primeirasPalavras.join(' ')
+    if (temMaisPalavras) {
+      resultado += '...'
+    }
+
+    return resultado
+  }
+
+  const formattedDescription = trimDescription(
+    description.replace(/\[[A-Za-z\s-]+\]/gi, ''),
+  )
 
   return (
     <>
-      <div className="h-[14rem] w-[27em] gap-10 flex flex-col justify-center items-center">
+      <div className="h-[14rem] w-[27em] gap-10  flex flex-col justify-center items-center">
         <motion.div
           layout
           data-isOpen={isOpen}
           initial={{ borderRadius: 8 }}
-          className={`bg-white h-56 w-72 flex ${
+          className={`bg-white h-56 w-72 flex rounded ${
             isOpen
-              ? 'items-start justify-start overflow-hidden'
+              ? 'items-start justify-start rounded overflow-hidden'
               : 'justify-center items-center'
           }`}
           onHoverStart={() => setIsOpen(true)}
           onHoverEnd={() => setIsOpen(false)}
         >
           <motion.img
-            src={readme}
-            alt=""
-            className={`object-cover h-56 w-72 rounded`}
-            initial={{ display: 'block' }}
-            animate={{ display: 'block' }}
-            transition={{ duration: 5 }}
+            src={readme || '/noImage.jpg'}
+            alt="repositories photos"
+            className={`object-cover h-56 w-72 rounded bg-gray-700`}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isOpen ? 0 : 1 }}
+            transition={{ duration: 0.2 }}
           />
           <motion.div
             layout
-            className={`h-56 w-72 ${
+            className={`h-64 w-80 ${
               isOpen
-                ? 'relative right-72 text-white bg-black flex justify-center items-center flex-col rounded'
+                ? 'relative right-72 text-white bg-gray-900 text-center px-4 py-8 flex justify-center items-center flex-col rounded'
                 : 'hidden'
             }`}
-            initial={{ y: '100%', width: '288px' }}
+            initial={{ y: '100%', width: '290px' }}
             animate={{
               y: isOpen ? '0%' : '100%',
               display: !isOpen ? 'none' : 'block',
-              width: isOpen ? '288px' : '0px',
             }}
-            transition={{ duration: 2.2 }}
+            transition={{ duration: 0.7 }}
           >
-            <h1 className="text-black w-72">{name}</h1>
-            <span>{formattedDescription}</span>
+            <h1 className="w-64 text-lg font-bold">{name}</h1>
+            <span className="text-sm">{formattedDescription}</span>
+            <footer className="flex items-center justify-center gap-6">
+              <Link
+                target="_blank"
+                href={html_url || '#'}
+                className="cursor-pointer flex
+              mt-4
+              items-center justify-center transition-all duration-1000 hover:scale-110 hover:text-green-500"
+              >
+                <FaGithub size={36} />
+              </Link>
+              {deployUrl && (
+                <Link
+                  target="_blank"
+                  href={deployUrl || '#'}
+                  className="cursor-pointer flex
+              mt-4
+              items-center justify-center transition-all duration-1000 hover:scale-110 hover:text-blue-500"
+                >
+                  <FaRocket size={32} />
+                </Link>
+              )}
+            </footer>
 
-            <Link
-              href={html_url || '/'}
-              className="cursor-pointer transition-all duration-1000 hover:scale-110 hover:text-green-500"
-            >
-              <FaGithub size={36} />
-            </Link>
+            {!readme ? (
+              <span className="text-sm mt-2 block">⚒️ under construction</span>
+            ) : (
+              ''
+            )}
           </motion.div>
         </motion.div>
       </div>

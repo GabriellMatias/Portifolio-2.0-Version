@@ -3,6 +3,7 @@
   
   "rules": {
     "react/no-unescaped-entities": 0, 
-    "camelcase" :"off"
+    "camelcase" :"off",
+    "jsx-a11y/alt-text": [0]
   }
 }

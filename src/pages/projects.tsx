@@ -12,6 +12,7 @@ export interface Repository {
   description: string
   html_url: string
   readme?: string
+  deployUrl?: string
 }
 
 export interface RepositoriesPageProps {
@@ -27,36 +28,56 @@ export default function RepositoriesPage({
   return (
     <>
       <Header />
-      <main>
-        <div className="text-white">
-          <h1>FRONT END REPOS</h1>
-          <ul>
-            {repositories[0].frontEndRepositories.map((repo) => (
-              <ProjectsCards
-                key={repo.id}
-                readme={repo.readme}
-                description={repo.description}
-                html_url={repo.html_url}
-                id={repo.id}
-                name={repo.name}
-              />
-            ))}
+      <main className="py-8 px-28 mb-6">
+        <h1 className="text-center font-bold text-white  text-3xl">
+          {'<'}Projects {'/>'}
+        </h1>
+        <span className="text-gray-400 mb-2">My projects!</span>
+        <h1 className="text-white font-bold text-3xl mb-10">
+          Take a look on my{' '}
+          <span className="text-bold text-blue-600">Front-End</span> Projects 🚀
+        </h1>
+        <section className="grid grid-cols-3 gap-10 mb-14">
+          {repositories[0].frontEndRepositories.map((repo) => (
+            <ProjectsCards
+              key={repo.id}
+              readme={repo.readme}
+              description={repo.description}
+              html_url={repo.html_url}
+              id={repo.id}
+              name={repo.name}
+              deployUrl={repo.deployUrl}
+            />
+          ))}
+        </section>
 
-            <h1>BACK END REPOS</h1>
-          </ul>
-          <ul>
-            {repositories[1].backEndRepositories.map((repo) => (
-              <ProjectsCards
-                key={repo.id}
-                readme={repo.readme}
-                description={repo.description}
-                html_url={repo.html_url}
-                id={repo.id}
-                name={repo.name}
-              />
-            ))}
-          </ul>
-        </div>
+        <h1 className="text-right text-white font-bold text-3xl mb-10">
+          Take a look on my{' '}
+          <span className="text-bold text-red-500">Back-End</span> Projects 🖨️
+        </h1>
+        <section className="grid grid-cols-3 gap-10">
+          {repositories[1].backEndRepositories.map((repo) => (
+            <ProjectsCards
+              key={repo.id}
+              readme={repo.readme}
+              description={repo.description}
+              html_url={repo.html_url}
+              id={repo.id}
+              name={repo.name}
+              deployUrl={repo.deployUrl}
+            />
+          ))}
+        </section>
+        <footer className="mt-24">
+          <h1 className="text-center text-white font-bold text-3xl mb-10">
+            My
+            <span className="text-bold text-green-500">Github</span> status 🐈‍⬛
+          </h1>
+          <div className="flex align-center justify-center gap-8">
+            <img src="https://github-readme-stats.vercel.app/api?username=GabriellMatias&show_icons=true&theme=dark&include_all_commits=true&count_private=true" />
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GabriellMatias&layout=compact&langs_count=7&theme=dark" />
+          </div>
+        </footer>
       </main>
       <Footer />
     </>
@@ -77,12 +98,29 @@ export const getServerSideProps: GetServerSideProps<
     const repositories = await Promise.all(
       response.data.map(async (repo: Repository) => {
         let readmeRepositoryResponse = null
+        let deployUrlResponse = null
+        let deployStatuseResponse = null
         try {
           readmeRepositoryResponse = await octokit.request(
             'GET /repos/{owner}/{repo}/readme',
             {
               owner: 'GabriellMatias',
               repo: repo.name,
+            },
+          )
+          deployUrlResponse = await octokit.request(
+            'GET /repos/{owner}/{repo}/deployments',
+            {
+              owner: 'gabriellMatias',
+              repo: repo.name,
+            },
+          )
+          deployStatuseResponse = await octokit.request(
+            'GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses',
+            {
+              owner: 'gabriellMatias',
+              repo: repo.name,
+              deployment_id: deployUrlResponse.data[0].id,
             },
           )
         } catch (error) {
@@ -96,12 +134,20 @@ export const getServerSideProps: GetServerSideProps<
         const match = decoding ? decoding.match(regex) : null
         const srcValue = match ? match[1] : null
 
+        let deployUrl = null
+        if (deployStatuseResponse) {
+          if (deployStatuseResponse.data.length > 0) {
+            deployUrl = deployStatuseResponse.data[0].target_url
+          }
+        }
+
         return {
           id: repo.id,
           name: repo.name,
           description: repo.description,
           html_url: repo.html_url,
           readme: srcValue,
+          deployUrl,
         }
       }),
     )

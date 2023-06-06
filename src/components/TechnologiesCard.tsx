@@ -1,18 +1,17 @@
-import React, { useState } from 'react'
+import React, { ElementType, useState } from 'react'
 import { motion } from 'framer-motion'
-import { SiTypescript } from 'react-icons/si'
 
 interface TechnologiesCardProps {
   title: string
   description: string
-  // icon: React.ComponentType
+  icon?: ElementType
 }
 
 export function TechnologiesCard({
   description,
   title,
-}: // icon,
-TechnologiesCardProps) {
+  icon: Icon,
+}: TechnologiesCardProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -34,9 +33,7 @@ TechnologiesCardProps) {
             isOpen ? 'ml-2 mt-2' : ''
           }`}
         >
-          <SiTypescript className="h-10 w-10 rounded" />
-
-          {/* ICONE VAI AQUI */}
+          <Icon />
           <div
             className={`w-60 h-fit flex flex-col  ml-4 transition-all duration-1000 gap-4 justify-center items-center  ${
               isOpen ? '' : 'hidden'

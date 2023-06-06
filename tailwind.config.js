@@ -20,6 +20,8 @@ module.exports = {
       },
       animation: {
         'ease-in': 'slideBottom 2s ease-in-out infinite alternate 0.5s both',
+        'ease-in-fast':
+          'slideBottom 0.7s ease-in-out infinite alternate 0.1s both',
       },
     },
   },
