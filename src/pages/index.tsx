@@ -39,10 +39,7 @@ export default function Home() {
               ButtonLink="https:/github.com/GabriellMatias"
             />
             <FloatingButton ButtonName="About me" ButtonLink="/aboutMe" />
-            <FloatingButton
-              ButtonName="Projects"
-              ButtonLink="https:/github.com/GabriellMatias"
-            />
+            <FloatingButton ButtonName="Projects" ButtonLink="/projects" />
           </div>
         </div>
       </section>
