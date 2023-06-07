@@ -22,7 +22,7 @@ export default function TechnologiesPage() {
   return (
     <>
       <Header />
-      <main className="py-8 px-28 mb-6">
+      <main className="py-8 px-28 mb-6 mobile:px-2">
         <h1 className="text-center font-bold text-white  text-3xl">
           {'<'}Technologies {'/>'}
         </h1>
@@ -83,7 +83,7 @@ export default function TechnologiesPage() {
             Technologies i{' '}
             <span className="text-bold text-blue-600">Current</span> Study 📚
           </h1>
-          <div className="grid grid-cols-3 gap-10  tablet:grid-cols-2 mobile:grid-cols-1">
+          <div className="grid grid-cols-3 gap-10 tablet:grid-cols-2 mobile:grid-cols-1">
             <TechnologiesCard
               description={Technologies.WordPress.description}
               title="WordPress"

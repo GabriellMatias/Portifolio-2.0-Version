@@ -37,7 +37,7 @@ export function BackEndProjectsCard({
         href={html_url}
         className="h-auto flex-1 w-[60vw] text-white hover:text-orange-500 transition-all duration-1000 hover:scale-105 flex flex-col justify-center items-center"
       >
-        <h1 className="text-2xl font-bold  ">{name}</h1>
+        <h1 className="text-2xl font-bold  mobile:text-xl">{name}</h1>
         <p className="font-semibold text-sm">{formattedDescription}</p>
         <div className="mt-4 mb-2 flex gap-4">
           <FaGithub size={32} className=" text-white" />

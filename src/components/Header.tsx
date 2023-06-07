@@ -6,7 +6,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="flex flex-1 rounded-b-xl tablet:px-18 mobile:px-10 justify-between py-8 px-28 font-semibold bg-[#1b1438]">
+    <header className="flex flex-1 rounded-b-xl tablet:px-18 mobile:px-4 justify-between py-8 px-28 font-semibold bg-[#1b1438]">
       <div className="flex items-center gap-4">
         <Image
           alt="profile photo"
@@ -25,15 +25,15 @@ export function Header() {
       </div>
       <div
         className={`list-none text-xl flex flex-col gap-4 items-center mobile:${
-          isMenuOpen ? 'block px-16 py-[68px]' : 'hidden'
+          isMenuOpen ? 'block px-16' : 'hidden'
         } tablet:${
           isMenuOpen
-            ? 'block absolute right-8 top-[87px] bg-[#1b1438] px-24 rounded-xl py-[68px] '
+            ? 'block absolute right-1 top-[87px] bg-[#1b1438] px-24 rounded-xl py-[68px]  '
             : 'hidden'
         }`}
       >
         <ul
-          className={`list-none text-xl flex gap-4 items-center mobile:flex-col tablet:flex-col tablet:gap-12 mobile:gap-12`}
+          className={`list-none text-xl mt-3 flex gap-4 items-center mobile:flex-col tablet:flex-col tablet:gap-12 mobile:gap-12`}
         >
           <li>
             {' '}

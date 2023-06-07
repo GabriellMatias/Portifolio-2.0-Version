@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <>
       <Header />
-      <section className="h-[100vh] mt-[-2rem] flex flex-col items-center justify-center gap-20">
+      <section className="h-[100vh] mt-[-2rem] flex flex-col items-center justify-center gap-20 mobile:mt-8 mobile:px-2">
         <main className="flex items-center justify-evenly">
           <article>
             <h2 className="text-white font-bold text-3xl flex flex-col gap-4">
               Hello there 🖐️, My Name is{' '}
-              <span className="text-6xl text-blue-600">
+              <span className="text-6xl text-blue-600 mobile:text-4xl">
                 {'<'}Gabriell.Matias {'/>'}
               </span>
             </h2>

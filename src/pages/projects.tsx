@@ -29,7 +29,7 @@ export default function RepositoriesPage({
   return (
     <>
       <Header />
-      <main className="py-8 px-28 mb-6">
+      <main className="py-8 px-28 mb-6 mobile:px-4">
         <h1 className="text-center font-bold text-white  text-3xl">
           {'<'}Projects {'/>'}
         </h1>

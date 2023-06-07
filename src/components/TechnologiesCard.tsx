@@ -20,7 +20,7 @@ export function TechnologiesCard({
     })
 
   return (
-    <div className="h-[14rem] w-[27em] gap-10 flex transition-all duration-1000 hover:scale-105 flex-col justify-center items-center">
+    <div className="h-[14rem] w-[27em] gap-10 flex transition-all duration-1000 hover:scale-105 flex-col justify-center items-center mobile:w-full">
       <motion.div
         layout
         data-isOpen={isOpen}

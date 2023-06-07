@@ -9,12 +9,12 @@ export default function AboutMe() {
   return (
     <>
       <Header />
-      <section className="py-8 px-28 text-white">
+      <section className="py-8 px-28 text-white mobile:px-4">
         <h1 className="text-center font-bold text-3xl">
           {'<'}About - Me {'/>'}
         </h1>
-        <div className="flex justify-center items-center gap-60">
-          <article className="w-[36rem] flex flex-col gap-16 font-bold">
+        <div className="flex justify-center items-center gap-60 mobile:flex-col mobile:gap-14">
+          <article className="w-[36rem] flex flex-col gap-16 font-bold mobile:w-full">
             <h1 className="text-bold text-2xl mt-12">
               I`m a <span className="text-blue-600">Full Stack</span> Developer.
             </h1>
@@ -36,7 +36,7 @@ export default function AboutMe() {
             </p>
             <FloatingButton ButtonLink="#" ButtonName="Linkedin" />
           </article>
-          <article className="w-[38rem] h-[28rem] rounded-xl bg-[#003140] transition-all duration-700 hover:scale-105 tablet:hidden mobile:hidden">
+          <article className="w-[38rem] h-[28rem] mobile:w-[18rem] mobile:h-[12rem] rounded-xl bg-[#003140] transition-all duration-700 hover:scale-105 ">
             <Image
               alt="profile photo"
               width={560}
@@ -47,14 +47,14 @@ export default function AboutMe() {
           </article>
         </div>
       </section>
-      <section className="py-8 px-28 mt-8">
+      <section className="py-8 px-28 mt-8 mobile:px-4">
         <span className="text-gray-400 mb-2">What i have done so far!</span>
         <h1 className="text-white font-bold text-3xl mb-10">
           My <span className="text-bold text-blue-600">History</span> Until now
         </h1>
         <VerticalTimeLineStudentExperience />
       </section>
-      <section className="py-8 px-28 mt-10">
+      <section className="py-8 px-28 mt-10 mobile:px-4">
         <h1 className="text-white font-bold text-3xl my-10 text-right">
           My <span className="text-bold text-blue-600">Work 🧑‍💼</span> experience
           Until now
