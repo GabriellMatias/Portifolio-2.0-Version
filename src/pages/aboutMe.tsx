@@ -9,16 +9,16 @@ export default function AboutMe() {
   return (
     <>
       <Header />
-      <section className="py-8 px-28 text-white mobile:px-4">
+      <section className="py-8 px-28 text-white mobile:px-4 mobile:py-4">
         <h1 className="text-center font-bold text-3xl">
           {'<'}About - Me {'/>'}
         </h1>
         <div className="flex justify-center items-center gap-60 mobile:flex-col mobile:gap-14">
-          <article className="w-[36rem] flex flex-col gap-16 font-bold mobile:w-full">
+          <article className="w-[36rem] flex flex-col gap-16 font-bold mobile:w-full mobile:mb-4">
             <h1 className="text-bold text-2xl mt-12">
               I`m a <span className="text-blue-600">Full Stack</span> Developer.
             </h1>
-            <p className="mt-[-2rem] text-lg">
+            <p className="mt-[-2rem] text-lg mobile:mt-0">
               I`m 20 years old. I`ve started to program in 2019, since this i
               always trying to learn something 📕
             </p>

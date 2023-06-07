@@ -25,7 +25,7 @@ export default function Contact() {
             <span className="text-white font-bold text-2xl mobile:text-xl">
               If you wanna know me better there is some ways to do it! 🧑‍💻
             </span>
-            <div className="text-white flex items-center justify-center gap-8 mt-14 mobile:flex-col">
+            <div className="text-white flex items-center justify-center gap-8 mt-14 mobile:flex-col mobile:gap-4">
               <div className="flex gap-8">
                 <Link
                   className="animate-pulse transition-colors duration-1000 hover:text-blue-600"

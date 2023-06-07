@@ -88,7 +88,7 @@ export default function RepositoriesPage({
             My{''}
             <span className="text-bold text-green-500"> Github</span> status 🐈‍⬛
           </h1>
-          <div className="flex align-center justify-center gap-8 tablet:flex-col  mobile:flex-col">
+          <div className="flex align-center justify-center gap-8 tablet:flex-col  mobile:flex-col mobile:gap-4">
             <img
               className="transition-all duration-1000 hover:scale-105"
               src="https://github-readme-stats.vercel.app/api?username=GabriellMatias&show_icons=true&theme=dark&include_all_commits=true&count_private=true"
