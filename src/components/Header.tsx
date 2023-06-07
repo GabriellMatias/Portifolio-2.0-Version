@@ -28,7 +28,7 @@ export function Header() {
           isMenuOpen ? 'block px-16' : 'hidden'
         } tablet:${
           isMenuOpen
-            ? 'block absolute right-1 top-[87px] bg-[#1b1438] px-24 rounded-xl py-[68px]  '
+            ? 'block absolute right-1 z-10 top-[87px] bg-[#1b1438] px-24 rounded-xl py-[68px]  '
             : 'hidden'
         }`}
       >

@@ -47,6 +47,8 @@ export function FrontEndProjectsCard({
           }`}
           onHoverStart={() => setIsOpen(true)}
           onHoverEnd={() => setIsOpen(false)}
+          onTouchStart={() => setIsOpen(true)}
+          onTouchEnd={() => setIsOpen(false)}
         >
           <motion.img
             src={readme || '/noImage.jpg'}
