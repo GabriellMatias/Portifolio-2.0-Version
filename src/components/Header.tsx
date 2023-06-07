@@ -18,7 +18,7 @@ export function Header() {
 
         <a
           href="/"
-          className="text-2xl mobile:text-lg transition-colors duration-300 font-extrabold text-white hover:text-blue-200"
+          className="text-2xl mobile:text-lg minMobile:text-sm transition-colors duration-300 font-extrabold text-white hover:text-blue-200"
         >
           Console.log("GabriellMatias")
         </a>
@@ -28,7 +28,7 @@ export function Header() {
           isMenuOpen ? 'block px-16' : 'hidden'
         } tablet:${
           isMenuOpen
-            ? 'block absolute right-1 z-10 top-[87px] bg-[#1b1438] px-24 rounded-xl py-[68px]  '
+            ? 'block absolute right-1 z-10 top-[87px] bg-[#1b1438] px-24 rounded-xl py-[68px] minMobile:px-8 minMobile:mt-[-1rem]'
             : 'hidden'
         }`}
       >

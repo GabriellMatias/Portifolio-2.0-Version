@@ -15,7 +15,7 @@ export default function Contact() {
         <section className="h-[90vh] flex items-center justify-center gap-14">
           <aside>
             {' '}
-            <h2 className="text-white font-bold text-3xl flex gap-4 mobile:text-2xl">
+            <h2 className="text-white font-bold text-3xl flex gap-4 mobile:text-2xl minMobile:flex-col minMobile:mt-8">
               Thank you <span className="text-blue-600">very much</span> for
               visiting my portfolio.
             </h2>

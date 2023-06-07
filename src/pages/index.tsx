@@ -6,16 +6,16 @@ export default function Home() {
   return (
     <>
       <Header />
-      <section className="h-[100vh] mt-[-2rem] flex flex-col items-center justify-center gap-20 mobile:mt-8 mobile:px-2">
+      <section className="h-[100vh] mt-[-2rem] flex minMobile:my-24 flex-col items-center justify-center gap-20 mobile:mt-8 mobile:px-2">
         <main className="flex items-center justify-evenly">
           <article>
-            <h2 className="text-white font-bold text-3xl flex flex-col gap-4">
+            <h2 className="text-white font-bold text-3xl flex flex-col gap-4 minMobile:text-2xl">
               Hello there 🖐️, My Name is{' '}
-              <span className="text-6xl text-blue-600 mobile:text-4xl">
+              <span className="text-6xl text-blue-600 mobile:text-4xl minMobile:text-2xl">
                 {'<'}Gabriell.Matias {'/>'}
               </span>
             </h2>
-            <h3 className="text-white font-bold text-2xl mt-8">
+            <h3 className="text-white font-bold text-2xl mt-8 minMobile:text-xl">
               I`m a full Stack Developer 💻.
             </h3>
             <h3 className="block mt-3">
@@ -30,7 +30,7 @@ export default function Home() {
           </aside>
         </main>
         <div className="flex flex-col items-center justify-center gap-4">
-          <h3 className="text-white font-bold text-2xl mt-10">
+          <h3 className="text-white font-bold text-2xl mt-10 minMobile:text-xl">
             Come know me better 👇.
           </h3>
           <div className="flex items-center justify-center gap-9 tablet:flex-col mobile:flex-col">
