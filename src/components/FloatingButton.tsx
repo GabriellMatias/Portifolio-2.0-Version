@@ -12,7 +12,14 @@ export function FloatingButton({
   ButtonLink,
 }: FloatingButtonProps) {
   return (
-    <Link href={ButtonLink}>
+    <Link
+      href={ButtonLink}
+      target={
+        ButtonName === 'Linkedin' || ButtonName === 'Github'
+          ? '_blank'
+          : '_self'
+      }
+    >
       <button className="flex transition duration-300 font-semibold gap-4 items-center animate-ease-in py-3 px-8 bg-blue-200 text-white text-base mt-5 rounded-[10px] hover:bg-blue-400 ">
         {ButtonName}
         {ButtonName === 'Projects' ? (

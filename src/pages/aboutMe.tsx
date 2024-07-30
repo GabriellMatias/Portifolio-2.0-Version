@@ -19,7 +19,7 @@ export default function AboutMe() {
               I`m a <span className="text-blue-600">Full Stack</span> Developer.
             </h1>
             <p className="mt-[-2rem] text-lg mobile:mt-0">
-              I`m 20 years old. I`ve started to program in 2019, since this i
+              I`m 22 years old. I`ve started to program in 2019, since this i
               always trying to learn something 📕
             </p>
             <p className="text-lg">
@@ -30,11 +30,16 @@ export default function AboutMe() {
               <span className="text-blue-500">React Native</span> on mobile 📱
             </p>
             <p className="text-lg">
-              I’m cursing Computer 💻 Sience in Universidade Catolica de
-              Brasilia [UCB]. I’m in the 5 semester, I also study a lot of web
-              courses like alura, curso em video and Rocketseat.
+              I'm currently in my final semester of Computer Science 💻 at the
+              Universidade Católica de Brasília (UCB). Additionally, I study a
+              lot of web-related courses 📚 on platforms like Alura, Curso em
+              Vídeo, Rocketseat, Origamid, and more. Today, besides studying,
+              I'm also the head of a web systems division 🖥️.
             </p>
-            <FloatingButton ButtonLink="#" ButtonName="Linkedin" />
+            <FloatingButton
+              ButtonLink="https://www.linkedin.com/in/gabriel-matias-03b98421a/"
+              ButtonName="Linkedin"
+            />
           </article>
           <article className="w-[38rem] h-[28rem] mobile:w-[18rem] mobile:h-[12rem] rounded-xl bg-[#003140] transition-all duration-700 hover:scale-105 ">
             <Image

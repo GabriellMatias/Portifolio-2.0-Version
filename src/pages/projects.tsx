@@ -146,6 +146,7 @@ export const getServerSideProps: GetServerSideProps<
           )
         } catch (error) {
           // Ignore the error and keep readmeRepositoryResponse as null
+          console.log(error)
         }
 
         const decoding = readmeRepositoryResponse
