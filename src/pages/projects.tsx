@@ -8,7 +8,7 @@ import { FrontEndProjectsCard } from '@/components/FrontEndProjectsCard'
 import { BackEndProjectsCard } from '@/components/BackEndProjectCard'
 
 export interface Repository {
-  id: number
+  id?: number
   name: string
   description: string
   html_url: string
@@ -45,7 +45,6 @@ export default function RepositoriesPage({
               readme={repo.readme}
               description={repo.description}
               html_url={repo.html_url}
-              id={repo.id}
               name={repo.name}
               deployUrl={repo.deployUrl}
             />
